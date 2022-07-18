@@ -1,2 +1,6 @@
-# server-security
- Sunucu Güvenliği
+# Sunucu Güvenliği
+
+## Linux Sunucu Sıkılaştırması
+
+## Windows Sunucu Sıkılaştırması
+
