@@ -54,6 +54,6 @@ sudo apt-get --purge remove xinetd nis yp-tools tftpd atftpd tftpd-hpa telnetd r
 # Log denetimi
 ...
 ## fail2ban
-..
+
 ...
 ## logwatch
