@@ -43,7 +43,6 @@ AllowUsers <username> , <username2>
 ```
 sudo apt-get --purge remove xinetd nis yp-tools tftpd atftpd tftpd-hpa telnetd rsh-server rsh-redone-server
 ```
-
 ## Grafik arayüz erişim protokolleri
 - VNC, RDP vs.
 
