@@ -1,5 +1,4 @@
 # Linux  İçin Sunucu Sıkılaştırması
-# Uzaktan erişim
 ## SSH Sunucusu
 ### SSH girişini root kullanıcısına kilitlemek
 
@@ -43,17 +42,62 @@ AllowUsers <username> , <username2>
 ```
 sudo apt-get --purge remove xinetd nis yp-tools tftpd atftpd tftpd-hpa telnetd rsh-server rsh-redone-server
 ```
-## Grafik arayüz erişim protokolleri
+
+## Gereksiz servisler
+- dpkg veya apt gibi RPM paket yöneticileri kullanarak istenmeyen yazılımlar silinebilir.
+```
+dpkg --list 
+```
+- Güncellemesi bitmiş eski yazılımlar apt sayesinde otomatik silinir
+```
+sudo apt autoremove
+```
+## Linux Kernel ve Yazılımı Güncel Tutulması
+- Güvenlik yamaları, linux sunucusu güvenliği için önemlidir. Bu güvenlik güncellemeleri en kısa sürede güncellenmelidir. Bu da yine paket yöneticileri sayesinde kolaylıkla yapılır.
+```
+sudo apt-get update && sudo apt-get upgrade
+```
+
+##  Grafik arayüz erişim protokolleri
 - VNC, RDP vs.
 
-## Web üzerinden yönetim sistemleri
-- webmin, vb.
 
-# Gereksiz servisler
-...
 # Log denetimi
 ...
 ## fail2ban
+- Fail2Ban bir IPS (izinsiz giriş önleme sistemi) 'dir. Logları ve sistemi takip eder. Birden fazla başarısız oturum açma tespit ederse isteklerin geldiği IP adresini kara listeye alır.
 
-...
+- Fail2Ban'ı yüklemek için
+
+```
+sudo apt-get install fail2ban
+```
+- Şimdi yeni jail.local dosyası oluşturacağız. /etc/fail2ban klasöründe jail.conf dosyası bulunur, o dosyayı düzenlemeyeceğiz ve ona dokunmayacağız. jail.conf dosyasının bir kopyası alınacak 
+```
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+- Bu dosyayı kopyaladıktan sonra jail.local dosyası üzerinde tercihe bağlı olarak nano üzerinde görüntüleyip düzenlemeler yapılabilir. 
+```
+sudo nano /etc/fail2ban/jail.local
+```
 ## logwatch
+- logwatch komutunu kullanarak, sistem günlüğündeki olağandışı işlemler hakkında bilgi alırsınız. 
+- İndirmek için; 
+```
+sudo apt install logwatch
+logwatch
+```
+
+## faillog
+
+- Oturum açma hatalarını görmek ve limitlerini belirlemek için "faillog"
+kullanılabilir. Faillog, /var/log/faillog/database/log 
+
+## rkhunter
+
+- Sunucuda çeşitli kontroller yaparak rootkit,backdoor,local exploits,malware gibi güvenlik problemlerini tarama yapabileceğiniz bir güvenlik uygulamasıdır.
+
+- Kurulumu için; 
+```
+sudo apt install rkhunter
+```
