@@ -63,7 +63,6 @@ sudo apt-get update && sudo apt-get upgrade
 
 
 # Log denetimi
-...
 ## fail2ban
 - Fail2Ban bir IPS (izinsiz giriş önleme sistemi) 'dir. Logları ve sistemi takip eder. Birden fazla başarısız oturum açma tespit ederse isteklerin geldiği IP adresini kara listeye alır.
 
